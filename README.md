@@ -21,7 +21,7 @@ npm install crypto-hash-legacy
 ## Usage
 
 ```js
-import {sha256} from 'crypto-hash';
+import {sha256} from 'crypto-hash-legacy';
 
 console.log(await sha256('🦄'));
 //=> '5df82936cbf0864be4b7ba801bee392457fde9e4'
