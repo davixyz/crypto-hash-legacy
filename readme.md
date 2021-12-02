@@ -1,6 +1,8 @@
-# crypto-hash
+# crypto-hash-legacy
 
-> Tiny hashing module that uses the native crypto API in Node.js and the browser
+Forked from [crypto-hash](https://github.com/sindresorhus/crypto-hash)
+
+> Tiny hashing module that uses the native crypto API in Node.js and the browser BUT with legacy exports
 
 Useful when you want the same hashing API in all environments. My cat calls it *isomorphic*.
 
@@ -10,12 +12,10 @@ The browser version is only ~300 bytes minified & gzipped.
 
 When used in the browser, it must be in a [secure context (HTTPS)](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/subtle).
 
-This package is for modern browsers. IE11 is not supported.
-
 ## Install
 
 ```sh
-npm install crypto-hash
+npm install crypto-hash-legacy
 ```
 
 ## Usage

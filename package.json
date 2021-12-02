@@ -1,32 +1,31 @@
 {
-	"name": "crypto-hash",
-	"version": "2.0.0",
-	"description": "Tiny hashing module that uses the native crypto API in Node.js and the browser",
+	"name": "crypto-hash-legacy",
+	"version": "0.0.1",
+	"description": "Tiny hashing module that uses the native crypto API in Node.js and the browser BUT with legacy browser export",
 	"license": "MIT",
-	"repository": "sindresorhus/crypto-hash",
-	"funding": "https://github.com/sponsors/sindresorhus",
+	"repository": "https://github.com/davixyz/crypto-hash-legacy",
 	"author": {
-		"name": "Sindre Sorhus",
-		"email": "sindresorhus@gmail.com",
-		"url": "https://sindresorhus.com"
-	},
-	"type": "module",
-	"exports": {
-		"node": "./index.js",
-		"default": "./browser.js"
+		"name": "Carlos Castro",
+		"url": "https://carloscastro.dev"
 	},
 	"engines": {
 		"node": "^12.20.0 || ^14.13.1 || >=16.0.0"
 	},
 	"scripts": {
-		"test": "xo && ava test.js && karmatic test-browser.js && tsd"
+		"lint": "xo",
+		"build": "rollup -c",
+		"test-node": "ava src/index.test.js",
+		"test-browser": "karmatic src/browser.test.js",
+		"test": "npm run test-node && npm run test-browser",
+		"validate": "npm run lint && npm run test && npm run build"
 	},
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"browser": "./dist/browser.js",
+	"type": "module",
 	"files": [
-		"index.js",
-		"index.d.ts",
-		"browser.js",
-		"brower.d.ts",
-		"thread.js"
+		"src",
+		"dist"
 	],
 	"keywords": [
 		"crypto",
@@ -39,13 +38,18 @@
 		"sha256",
 		"sha384",
 		"sha512",
-		"browser"
+		"browser",
+		"legacy"
 	],
 	"devDependencies": {
+		"@babel/core": "^7.16.0",
+		"@babel/preset-env": "^7.16.4",
+		"@rollup/plugin-babel": "^5.3.0",
 		"@sindresorhus/is": "^4.2.0",
 		"ava": "^3.15.0",
 		"hash.js": "^1.1.7",
-		"karmatic": "2.1.0",
+		"karmatic": "^2.1.0",
+		"rollup": "^2.60.2",
 		"tsd": "^0.18.0",
 		"xo": "^0.45.0"
 	}
